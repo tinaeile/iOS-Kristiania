@@ -14,14 +14,16 @@ import UIKit
 
 */
 
+let constant = "Swift is cool!"
 
 /*:
 ## Task #2
 
 Create a constant with an explicit String type and the value "iOS FTW" - Then remove the type. Why is this possible?
-
+ 
 */
 
+let explicitConstant : String = "iOS FTW"
 
 /*:
  ## Task #3
@@ -39,6 +41,13 @@ Create an expression with string interpolation where you calculate the sum of 5 
 
 */
 
+let num1 = 5
+let num2 = 120
+let sum = num1 * num2
+
+let expression = "\(num1) * \(num2) = \(sum)"
+
+print(expression)
 
 /*:
  ## Task #5
@@ -47,6 +56,14 @@ Compare two strings and print "they are equal", if they are exactly the same, or
 
 */
 
+let string1 = "hei"
+let string2 = "ok"
+
+if string1 == string2 {
+    print("they are equal")
+} else {
+    print("they are different")
+}
 
 /*:
  ## Task #6
@@ -55,7 +72,8 @@ Create a tuple with the content (5600, “iOS programming”). Then use print to
  
 */
 
-
+let tuple = (code: 5600, subject: "iOS programming")
+print("\(tuple.code) - \(tuple.subject)")
 
 /*:
  ## Task #7
@@ -83,6 +101,18 @@ Expected result
 //:    o
 //:    n
 
+let wordArray = ["Falcon 9", "Dragon"]
+
+for word in wordArray {
+    print(word)
+}
+
+for word in wordArray {
+    for letter in word {
+        print(letter)
+    }
+}
+
 /*:
  ## Task #8
 
@@ -90,7 +120,11 @@ Create a dictionary with 5 key-value pairs, loop over it and print key and value
 
 */
 
+let dictionary = ["red" : "rød", "yellow" : "gul", "green" : "grønn", "blue" : "blå", "violet" : "lilla"]
 
+for keyPair in dictionary {
+    print(keyPair)
+}
 
 /*:
  ## Task #9
@@ -116,6 +150,11 @@ let numberOfLaunches = [19, 55, 135, 1]
 //:    ...
 //:    My water bottle-rocket : 1 launch        // note that that there the missing plural "s" when there is only 1 launch
 
+let rocketsFiltered = rockets.compactMap{$0 as? String}
+let rocketLaunches = Dictionary(uniqueKeysWithValues: zip(rocketsFiltered, numberOfLaunches))
+rocketLaunches.forEach {
+    print("\($0.key): \($0.value) \($0.value > 1 ? "launches" : "launch")")
+}
 
 //:## Task #11
 
@@ -123,12 +162,12 @@ let numberOfLaunches = [19, 55, 135, 1]
 
 func parseLanguages(languages: String) -> [String] {
     // Write your code here
-    return []
+    return languages.components(separatedBy: ", ")
 }
 
 func sortLanguages(languages: [String]) -> [String] {
     // Write your code here
-    return []
+    return languages.sorted()
 }
 
 let languages = "Swift, Java, Objective-C, Python"
