@@ -89,6 +89,20 @@ repeatCharacter(Character("W"), 5)
 
 */
 
+// Function that returns "W"
+func wCharacter() -> String{
+    return "W";
+}
+
+// Function that prints what the given function returns, the given amount of times
+func repeatCharacter(fn: () ->String, times: Int) {
+    for _ in 0 ..< times {
+        print(fn())
+    }
+}
+
+// Calling function
+repeatCharacter(fn: wCharacter, times: 5)
 
 /*:
 ## Oppgave 4b
@@ -96,7 +110,6 @@ Utvid funksjonen til å støtte default parametere. Dvs. at når times ikke oppg
 
 repeatCharacter(Character("W"))
 */
-
 
 
 /*:
