@@ -8,24 +8,53 @@ import UIKit
 
 ## Oppgave 1a:
 Lag en funksjon, minimum, som tar to verdier, og returnerer den minste
-
 minimum(a: 54, b: 392)   // 54
-
+ 
 ## Oppgave 1b: Lag samme type funksjon for maximum
+ 
+ func maximum(x : Int, y : Int) {
+     if x > y {
+         print(x)
+     } else {
+         print(y)
+     }
+ }
 
 maximum(a:54, b: 392)    // 392
 */
 
+func minimum<T: Comparable>(x: T, y: T) -> T {
+    return x < y ? x : y
+}
+
+print("Oppgave 1a\n\(minimum(x:54, y:392))\n")
+
+func maximum<T: Comparable>(x: T, y: T) -> T {
+    return x > y ? x : y
+}
+
+print("Oppgave 1b\n\(maximum(x:54, y:392))\n")
 
 /*:
 ## Oppgave 2:
 Lag en funksjon, sumOfAllValues, som summerer all verdiene i et array
 
 sumOfAllValues(inArray: [34,10,10,10,100]) //  164
+ 
+ func sumOfAllValues(arr : [Int]){
+     var sum = 0
+     for n in arr {
+         sum += n
+     }
+     print(sum)
+ }
 
 */
+func sumOfAllValues<T: Numeric>(array: [T]) -> T {
+    return array.reduce(0, +)
+}
 
-
+print("Oppgave 2\n\(sumOfAllValues(array: [34,10,10,10,100]))\n")
 
 /*:
 ## Oppgave 3a:
@@ -39,6 +68,18 @@ numbersBiggerThan(999, [34,39,100,493,1,5])    // nil ,   MERK: nil er ikke det 
 
 */
 
+func numbersBiggerThan<T: Comparable>(num : T, numArr: [T]) -> [T]{
+    return numArr.filter {$0 > num}
+}
+
+numbersBiggerThan(num: 54, numArr: [34,39,100,493,1,5])
+
+func numbersBiggerThanOrNil<T: Comparable>(num : T, numArr: [T]) -> [T]?{
+    let numbers = numArr.filter {$0 > num}
+    return numbers.isEmpty ? nil : numbers
+}
+
+numbersBiggerThanOrNil(num: 999, numArr: [34,39,100,493,1,5])
 
 /*:
 ## Oppgave 4a:
