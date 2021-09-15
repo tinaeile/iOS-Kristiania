@@ -70,3 +70,22 @@ let people = [Person(name: "Edd"), Person(name: "Ed"), Person(name: "Eddy"), Per
 
 let nameLengthArray = people.map { person in person.name?.count ?? 0 }
 print(nameLengthArray)
+
+// Task 9
+
+for person in people {
+    print(person.name ?? "")
+}
+
+people.forEach { person in print(person.name ?? "") }
+
+people
+    .map { $0.name?.count ?? 0 }
+    .forEach { print($0) }
+
+// Task 10
+
+people
+    .compactMap { $0.name }
+    .forEach { print($0) }
+
