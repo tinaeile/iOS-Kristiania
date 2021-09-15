@@ -11,15 +11,30 @@ firstClosure(5)
 let secondClosure = {x in x * 2}
 secondClosure(2)
 
+let closure2: (Int) -> Int = {
+    number in number * 2
+}
+
 // Task 3
 
 let thirdClosure = {$0 * 2}
 thirdClosure(8)
 
+let closure3: (Int) -> Int = {
+    $0 * 2
+}
+closure3(8)
+
 // Task 4
 
 let fourthClosure: ((Int) -> Int)? = {x in x * 2}
-fourthClosure!(2)
+fourthClosure!(2) // Dont do thiiiiis
+fourthClosure?(2)
+
+let closure4: ((Int)->Int)? = {
+    $0 * 2
+}
+closure4?(2)
 
 // Task 5
 
@@ -35,4 +50,23 @@ isDivisible(a: 14, b: 7, fifthClosure: { (isDivisible: Bool) -> Void in
     }
 })
 
-// Task 6
+// Task 6 & 7
+
+isDivisible(a: 14, b: 7) {
+    if $0 {
+        print("Task 6 & 7: They're totally divisible!")
+    } else {
+        print("Bummer...")
+    }
+}
+
+// Task 8
+
+struct Person {
+    let name: String?
+}
+
+let people = [Person(name: "Edd"), Person(name: "Ed"), Person(name: "Eddy"), Person(name: nil)]
+
+let nameLengthArray = people.map { person in person.name?.count ?? 0 }
+print(nameLengthArray)
