@@ -88,4 +88,3 @@ people
 people
     .compactMap { $0.name }
     .forEach { print($0) }
-
